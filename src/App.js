@@ -25,6 +25,10 @@ class App extends Component {
   }
 
   submit(e) {
+    const r = this.state.apr / 100.0 / 12.0;
+    const n = this.state.term * 12.0;
+    const payment = (r * this.state.principle) / (1 - Math.pow(1 + r, -n));
+    this.setState({payment});
   }
 
   render() {
