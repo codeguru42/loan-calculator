@@ -15,11 +15,10 @@ class App extends Component {
   }
 
   handleInput(field, e) {
-    this.setState({[field]: e.target.value})
+    this.setState({[field]: Number(e.target.value)})
   }
 
   submit(e) {
-    alert(`Hello, ${this.state.name}`);
   }
 
   render() {
