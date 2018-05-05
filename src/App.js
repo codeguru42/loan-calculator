@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   handleInput(field, e) {
-    this.setState({[field]: Number(e.target.value)})
+    this.setState({[field]: Number(e.target.value)});
   }
 
   submit(e) {
