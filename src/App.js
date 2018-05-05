@@ -6,7 +6,12 @@ class App extends Component {
   constructor(props, context) {
     super(props, context);
     this.submit = this.submit.bind(this);
-    this.state = {name: ''};
+    this.state = {
+        principle: '',
+        apr: '',
+        term: '',
+        payment: '',
+    };
   }
 
   handleInput(field, e) {
