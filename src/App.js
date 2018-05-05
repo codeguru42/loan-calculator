@@ -5,13 +5,12 @@ import {Button, ControlLabel, FormControl, FormGroup} from "react-bootstrap";
 class App extends Component {
   constructor(props, context) {
     super(props, context);
-    this.handleNameChange = this.handleNameChange.bind(this);
     this.submit = this.submit.bind(this);
     this.state = {name: ''};
   }
 
-  handleNameChange(e) {
-    this.setState({name: e.target.value})
+  handleInput(field, e) {
+    this.setState({[field]: e.target.value})
   }
 
   submit(e) {
@@ -26,7 +25,7 @@ class App extends Component {
             <FormControl type={'text'}
                          value={this.state.name}
                          placeholder={'Enter your name'}
-                         onChange={this.handleNameChange}
+                         onChange={this.handleInput.bind(this, 'name')}
             />
           </FormGroup>
           <Button bsStyle={'primary'}
