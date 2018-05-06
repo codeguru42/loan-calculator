@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   handleInput(field, e) {
-    this.setState({[field]: Number(e.target.value)});
+    this.setState({[field]: e.target.value});
   }
 
   submit(e) {
@@ -42,7 +42,7 @@ class App extends Component {
         <Panel.Body>
           <FormGroup controlId={'principle'}>
             <ControlLabel>Principle:</ControlLabel>
-            <FormControl type={'text'}
+            <FormControl type={'number'}
                          value={this.state.principle}
                          placeholder={'Principle'}
                          onChange={this.handleInput.bind(this, 'principle')}
@@ -50,7 +50,7 @@ class App extends Component {
           </FormGroup>
           <FormGroup controlId={'apr'}>
             <ControlLabel>Interest Rate:</ControlLabel>
-            <FormControl type={'text'}
+            <FormControl type={'number'}
                          value={this.state.apr}
                          placeholder={'APR'}
                          onChange={this.handleInput.bind(this, 'apr')}
@@ -58,7 +58,7 @@ class App extends Component {
           </FormGroup>
           <FormGroup controlId={'term'}>
             <ControlLabel>Loan Term:</ControlLabel>
-            <FormControl type={'text'}
+            <FormControl type={'number'}
                          value={this.state.term}
                          placeholder={'Term'}
                          onChange={this.handleInput.bind(this, 'term')}
@@ -66,7 +66,7 @@ class App extends Component {
           </FormGroup>
           <FormGroup controlId={'payment'}>
             <ControlLabel>Monthly Payment</ControlLabel>
-            <FormControl type={'text'}
+            <FormControl type={'number'}
                          value={this.state.payment}
                          placeholder={'Monthly Payment'}
                          onChange={this.handleInput.bind(this, 'payment')}
