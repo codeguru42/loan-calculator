@@ -70,7 +70,7 @@ class App extends Component {
                          value={this.state.payment}
                          placeholder={'Monthly Payment'}
                          onChange={this.handleInput.bind(this, 'payment')}
-                         readonly
+                         readOnly
             />
           </FormGroup>
           <Button bsStyle={'primary'}
