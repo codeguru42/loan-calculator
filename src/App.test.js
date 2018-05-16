@@ -11,8 +11,8 @@ it('renders without crashing', () => {
 it('renders a Panel control', () => {
   const testRenderer = TestRenderer.create(<App />);
   const app = testRenderer.root;
-  const formGroups = app.findAllByType(Panel);
-  expect(formGroups).toHaveLength(1);
+  const panel = app.findAllByType(Panel);
+  expect(panel).toHaveLength(1);
   testRenderer.unmount();
 });
 
@@ -36,8 +36,8 @@ describe('App tests', () => {
   it('renders a Panel control', () => {
     const testRenderer = TestRenderer.create(<App />);
     const app = testRenderer.root;
-    const formGroups = app.findAllByType(Panel);
-    expect(formGroups).toHaveLength(1);
+    const panel = app.findAllByType(Panel);
+    expect(panel).toHaveLength(1);
     testRenderer.unmount();
   });
 
@@ -72,18 +72,18 @@ describe('App tests with beforeEach()', () => {
   });
 
   it('renders a Panel control', () => {
-    const formGroups = app.findAllByType(Panel);
-    expect(formGroups).toHaveLength(1);
+    const panel = app.findAllByType(Panel);
+    expect(panel).toHaveLength(1);
   });
 
   it('should render Panel.Heading', () => {
-    const formGroups = app.findAllByType(Panel.Heading);
-    expect(formGroups).toHaveLength(1);
+    const panelHeading = app.findAllByType(Panel.Heading);
+    expect(panelHeading).toHaveLength(1);
     renderer.unmount();
   });
 
   it('should render Panel.Heading', () => {
-    const formGroups = app.findAllByType(Panel.Body);
-    expect(formGroups).toHaveLength(1);
+    const panelBody = app.findAllByType(Panel.Body);
+    expect(panelBody).toHaveLength(1);
   });
 });
