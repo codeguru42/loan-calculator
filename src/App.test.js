@@ -79,7 +79,6 @@ describe('App tests with beforeEach()', () => {
   it('should render Panel.Heading', () => {
     const panelHeading = app.findAllByType(Panel.Heading);
     expect(panelHeading).toHaveLength(1);
-    renderer.unmount();
   });
 
   it('should render Panel.Heading', () => {
