@@ -1,8 +1,8 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import {mount, configure} from 'enzyme';
+import {configure, mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import {Panel} from "react-bootstrap";
+import {Button, Panel} from "react-bootstrap";
 import App from './App';
 
 it('renders without crashing', () => {
@@ -120,6 +120,17 @@ describe('App tests with enzyme', () => {
       principle: 20000,
     });
     wrapper.instance().submit();
+    expect(wrapper.state('payment')).toBeCloseTo(599.42, 2);
+  });
+
+  it('should calculate payment amount', () => {
+    wrapper.setState({
+      apr: 5.0,
+      term: 3,
+      principle: 20000,
+    });
+    const button = wrapper.find(Button);
+    button.simulate('click');
     expect(wrapper.state('payment')).toBeCloseTo(599.42, 2);
   });
 });
