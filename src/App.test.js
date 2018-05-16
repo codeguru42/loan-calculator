@@ -1,5 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {mount, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import {Panel} from "react-bootstrap";
 import App from './App';
 
@@ -84,5 +86,30 @@ describe('App tests with beforeEach()', () => {
   it('should render Panel.Heading', () => {
     const panelBody = app.findAllByType(Panel.Body);
     expect(panelBody).toHaveLength(1);
+  });
+});
+
+configure({ adapter: new Adapter() });
+
+describe('App tests with enzyme', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = mount(<App/>);
+  });
+
+  it('renders a Panel control', () => {
+    const panel = wrapper.find(Panel);
+    expect(panel).toHaveLength(1);
+  });
+
+  it('should render Panel.Heading', () => {
+    const formGroups = wrapper.find(Panel.Heading);
+    expect(formGroups).toHaveLength(1);
+  });
+
+  it('should render Panel.Heading', () => {
+    const formGroups = wrapper.find(Panel.Body);
+    expect(formGroups).toHaveLength(1);
   });
 });
