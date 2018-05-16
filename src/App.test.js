@@ -112,4 +112,14 @@ describe('App tests with enzyme', () => {
     const formGroups = wrapper.find(Panel.Body);
     expect(formGroups).toHaveLength(1);
   });
+
+  it('should calculate payment amount', () => {
+    wrapper.setState({
+      apr: 5.0,
+      term: 3,
+      principle: 20000,
+    });
+    wrapper.instance().submit();
+    expect(wrapper.state('payment')).toBeCloseTo(599.42, 2);
+  });
 });
