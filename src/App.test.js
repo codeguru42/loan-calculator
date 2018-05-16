@@ -15,3 +15,21 @@ it('renders a Panel control', () => {
   expect(formGroups).toHaveLength(1);
   testRenderer.unmount();
 });
+
+describe('App tests', () => {
+  it('should render Panel.Heading', () => {
+    const testRenderer = TestRenderer.create(<App />);
+    const app = testRenderer.root;
+    const panelHeading = app.findAllByType(Panel.Heading);
+    expect(panelHeading).toHaveLength(1);
+    testRenderer.unmount();
+  });
+
+  it('should render Panel.Heading', () => {
+    const testRenderer = TestRenderer.create(<App />);
+    const app = testRenderer.root;
+    const panelBody = app.findAllByType(Panel.Body);
+    expect(panelBody).toHaveLength(1);
+    testRenderer.unmount();
+  });
+});
