@@ -57,3 +57,33 @@ describe('App tests', () => {
     testRenderer.unmount();
   });
 });
+
+describe('App tests with beforeEach()', () => {
+  let renderer;
+  let app;
+
+  beforeEach(() => {
+    renderer = TestRenderer.create(<App />);
+    app = renderer.root;
+  });
+
+  afterEach(() => {
+    renderer.unmount();
+  });
+
+  it('renders a Panel control', () => {
+    const formGroups = app.findAllByType(Panel);
+    expect(formGroups).toHaveLength(1);
+  });
+
+  it('should render Panel.Heading', () => {
+    const formGroups = app.findAllByType(Panel.Heading);
+    expect(formGroups).toHaveLength(1);
+    renderer.unmount();
+  });
+
+  it('should render Panel.Heading', () => {
+    const formGroups = app.findAllByType(Panel.Body);
+    expect(formGroups).toHaveLength(1);
+  });
+});
